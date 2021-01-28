@@ -1,1 +1,1 @@
-# docker-and-wordpress
+# Docker and WordPress Example 🐳
