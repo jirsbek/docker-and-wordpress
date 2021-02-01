@@ -1,7 +1,8 @@
 # Docker and WordPress Example 🐳
 
-## Setup
-- https://www.docker.com/get-started
+## Basic Setup
+1. Install Docker https://www.docker.com/get-started
+2. `./docker-compose up`
 
 ## Access
 - `http://localhost:8080` – WordPress
@@ -9,7 +10,7 @@
 - `http://localhost:8000` – PHPMyAdmin (`root`/`root`)
 
 ## docker-compose
-Používáme v adresáří, kde je umístěna konfigurace `docker-compose.yml`
+Používáme v adresáři, kde je umístěna konfigurace `docker-compose.yml`
 - `docker-compose up` # Spuštění kontejnerů
 - `docker-compose up -d` # Spuštění kontejnerů v pozadí
 - `docker-compose stop` # Zastavení kontejnerů
