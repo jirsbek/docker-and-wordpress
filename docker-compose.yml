@@ -1,36 +1,42 @@
 version: '3'
 services:
 
+
+
   # Konfigurace MySQL kontejneru
   database:
     image: mysql:5.7 # Zdrojový image z repositáře
     ports:
-      - "3307:3306" # Mapování portů
+      - "3307:3306" # Mapování portů lokální:virtuální prostředí
     environment:
       MYSQL_USER: root # Uživatelské jméno k databázi
       MYSQL_ROOT_PASSWORD: root # Heslo k databázi
     volumes:
-      - ./data:/var/lib/mysql # Mapování adresáře s daty mezi lokálním prostředím a virtuálním
+      - ./data:/var/lib/mysql # Mapování adresáře s daty databáze mezi lokálním prostředím a virtuálním
+
+
 
   # Konfigurace WordPress (Apache) kontejneru
   wordpress:
-    depends_on:
-      - database # Závislost kontejneru
     build: ./ # Zdrojový image
     ports:
-      - "8080:80" # Mapování portů
+      - "8080:80" # Mapování portů lokální:virtuální prostředí
     volumes:
       - ./public_html:/var/www/html:delegated # Mapování adresáře mezi lokálním prostředím a virtuálním
-      - ./php.ini:/usr/local/etc/php/conf.d/php.ini:ro # Mapování php.ini
+      - ./php.ini:/usr/local/etc/php/conf.d/php.ini:ro # Mapování php.ini (ro = read only)
+    depends_on:
+      - database # Závislost kontejneru
+
+
 
   # Konfigurace PHPMyAdmin kontejneru
   phpmyadmin:
-    depends_on:
-      - database # Závislost kontejneru
     image: phpmyadmin/phpmyadmin # Zdrojový image z repositáře
     ports:
-      - 8000:80 # Mapování portů
+      - 8000:80 # Mapování portů lokální:virtuální prostředí
     volumes:
-      - ./phpmyadmin.ini:/usr/local/etc/php/conf.d/php.ini:ro # Mapování php.ini
+      - ./phpmyadmin.ini:/usr/local/etc/php/conf.d/php.ini:ro # Mapování php.ini (ro = read only)
     environment:
       PMA_HOST: database
+    depends_on:
+      - database # Závislost kontejneru
