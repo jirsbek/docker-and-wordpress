@@ -12,20 +12,20 @@ services:
       MYSQL_USER: root # Uživatelské jméno k databázi
       MYSQL_ROOT_PASSWORD: root # Heslo k databázi
     volumes:
-      - ./data:/var/lib/mysql # Mapování adresáře s daty databáze mezi lokálním prostředím a virtuálním
+      - ./data:/var/lib/mysql # Mapování adresáře s daty databáze lokálním:virtuální prostředí
 
 
 
   # Konfigurace WordPress (Apache) kontejneru
   wordpress:
-    build: ./ # Zdrojový image
+    build: ./ # Zdrojový image Dockerfile
     ports:
       - "8080:80" # Mapování portů lokální:virtuální prostředí
     volumes:
-      - ./public_html:/var/www/html:delegated # Mapování adresáře mezi lokálním prostředím a virtuálním
+      - ./public_html:/var/www/html:delegated # Mapování adresáře lokální:virtuální prostředí (delegated pozitivní vliv na výkon)
       - ./php.ini:/usr/local/etc/php/conf.d/php.ini:ro # Mapování php.ini (ro = read only)
     depends_on:
-      - database # Závislost kontejneru
+      - database # Závislost kontejneru na ostatních kontejnerech
 
 
 
@@ -39,4 +39,4 @@ services:
     environment:
       PMA_HOST: database
     depends_on:
-      - database # Závislost kontejneru
+      - database # Závislost kontejneru na ostatních kontejnerech

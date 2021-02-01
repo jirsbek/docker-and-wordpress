@@ -8,7 +8,7 @@
 - `http://localhost:8080/admin/` – WordPress admin (`admin`/`password`)
 - `http://localhost:8000` – PHPMyAdmin (`root`/`root`)
 
-## `docker-compose`
+## docker-compose
 Používáme v adresáří, kde je umístěna konfigurace `docker-compose.yml`
 - `docker-compose up` # Spuštění kontejnerů
 - `docker-compose up -d` # Spuštění kontejnerů v pozadí
@@ -19,7 +19,7 @@ Používáme v adresáří, kde je umístěna konfigurace `docker-compose.yml`
 - `docker-compose build` # Znovu build z Dockerfile
 - `docker-compose exec name-of-the-container /bin/bash` # Bash v kontejneru
 
-## `docker`
+## docker
 - `docker ps` # Vypíše běžící kontejnery ("process status")
 - `docker exec -it name-of-the-container /bin/bash` # Bash v kontejneru
 - `docker stop [CONTAINER]` # Zastaví běžící kontejner [CONTAINER]
