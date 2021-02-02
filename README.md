@@ -4,32 +4,29 @@
 1. Install Docker https://www.docker.com/get-started
 2. `./docker-compose up`
 
-## Access
+## URLs
 - `http://localhost:8080` – WordPress
 - `http://localhost:8080/admin/` – WordPress admin (`admin`/`password`)
 - `http://localhost:8000` – PHPMyAdmin (`root`/`root`)
 
 ## docker-compose
-Používáme v adresáři, kde je umístěna konfigurace `docker-compose.yml`
-- `docker-compose up` # Spuštění kontejnerů
-- `docker-compose up -d` # Spuštění kontejnerů v pozadí
-- `docker-compose stop` # Zastavení kontejnerů
-- `docker-compose down` # Zastaví a odstraní kontejnery
-- `docker-compose ps` # Vypíše kontejnery v adresáři ("process status")
-- `docker-compose rm` # Odstraní zastavené kontejnery
-- `docker-compose build` # Znovu build z Dockerfile
-- `docker-compose exec name-of-the-container /bin/bash` # Bash v kontejneru
+Run `docker-compose` command in the filder with `docker-compose.yml` only
+- `docker-compose up` # Start containers
+- `docker-compose up -d` # Start containers in detached mode (in background)
+- `docker-compose stop` # Stop containers
+- `docker-compose down` # Stop and remove containers
+- `docker-compose ps` # List containers ("process status")
+- `docker-compose rm` # Remove stopped containers
+- `docker-compose build` # Build containers
+- `docker-compose exec [CONTAINER] /bin/bash` # Access bash in [CONTAINER] container
 
 ## docker
-- `docker ps` # Vypíše běžící kontejnery ("process status")
-- `docker exec -it name-of-the-container /bin/bash` # Bash v kontejneru
-- `docker stop [CONTAINER]` # Zastaví běžící kontejner [CONTAINER]
-- `docker stop $(docker ps -a -q)` # Zastaví všechny běžící kontejnery
-
-## Images
-- `docker images` # Vypíše seznam images
-- `docker rmi` # Odstraní image
-
-## Containers
-- `docker container ls --all` # Vypíše seznam všech kontejnerů, které Docker registruje v našem OS
-- `docker container rm [CONTAINER]` # Odstraní kontejner [CONTAINER]
+Run `docker` command from everywhere
+- `docker ps` # List running containers ("process status")
+- `docker exec -it [CONTAINER] /bin/bash` # Access bash in [CONTAINER] container
+- `docker stop [CONTAINER]` # Stop running [CONTAINER]
+- `docker stop $(docker ps -a -q)` # Stop all running containers
+- `docker container ls --all` # List all containers Docker registers in our system
+- `docker container rm [CONTAINER]` # Remove container [CONTAINER]
+- `docker images` # List all images
+- `docker rmi [IMAGE]` # Remove [IMAGE]
