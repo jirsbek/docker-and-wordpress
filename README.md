@@ -10,7 +10,7 @@
 - `http://localhost:8000` – PHPMyAdmin (`root`/`root`)
 
 ## docker-compose
-Run `docker-compose` command in the filder with `docker-compose.yml` only
+Run `docker-compose` command in the folder with `docker-compose.yml` only
 - `docker-compose up` # Start containers
 - `docker-compose up -d` # Start containers in detached mode (in background)
 - `docker-compose stop` # Stop containers
