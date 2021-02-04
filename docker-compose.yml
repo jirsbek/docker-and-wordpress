@@ -28,9 +28,9 @@ services:
     image: phpmyadmin/phpmyadmin # Zdrojový image z repositáře
     ports:
       - 8000:80 # Mapování portů lokální:kontejner
-    volumes:
-      - ./phpmyadmin.ini:/usr/local/etc/php/conf.d/php.ini:ro # Mapování php.ini (ro = read only)
     environment: # ENV proměnné pro kontejner
       PMA_HOST: database
+    volumes:
+      - ./phpmyadmin.ini:/usr/local/etc/php/conf.d/php.ini:ro # Mapování php.ini (ro = read only)
     depends_on:
       - database # Závislost kontejneru na ostatních kontejnerech
