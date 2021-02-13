@@ -14,7 +14,7 @@ services:
 
   # Konfigurace WordPress (Apache) kontejneru
   wordpress:
-    build: ./ # Zdrojový image Dockerfile
+    build: ./ # Image se definuje v Dockerfile, který jej rozšířuje
     ports:
       - "8080:80" # Mapování portů lokální:virtuální prostředí
     volumes:
